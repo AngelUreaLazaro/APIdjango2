@@ -1,0 +1,42 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+    <title>Registro</title>
+</head>
+<body>
+    <div class="body"></div>
+		<div class="grad"></div>
+        <div class="header">
+			<div><span>Registro</span>Usuario</div>
+		</div>
+		<br>
+    <div class="registro-body">
+        <form action="{% url 'procesar_registro' %}" method="POST" class="registro-form">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <label for="apellido">Apellido:</label><br>
+
+            <input type="text" id="apellido" name="apellido" required><br>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="text" id="email" name="email" required><br>
+
+            <label for="usuario">Nombre de Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required><br>
+
+            <label for="contrasena">Contraseña:</label><br>
+
+            <input type="password" id="contrasena" name="contrasena" required><br>
+
+            <input type="submit" value="Registrarse">
+            <p>Tienes ya una cuenta <a href="{% url 'login' %}">Inicia Sesión</a>.</p>
+        </form>
+    </div> 
+</body>
+</html>

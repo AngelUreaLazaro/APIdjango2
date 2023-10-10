@@ -3,21 +3,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/index.css'%}"> <!-- Enlaza tu archivo CSS personalizado -->
+    <title>Tu Sitio Web</title>
 </head>
 <body>
-    <div class="body"></div>
-		<div class="grad"></div>
-		<div class="header">
-			<div><span>Login</span></div>
-		</div>
-		<br>
-		<div class="login">
-				<input type="text" placeholder="username" name="user"><br>
-				<input type="password" placeholder="password" name="password"><br>
-				<input type="button" value="Login" >
-		</div>
+    <!-- Barra de herramientas -->
+    <div class="toolbar">
+        <div class="toolbar-left">
+            <a href="{% url 'index' %}" class="toolbar-button">Home</a>
+        </div>
+        <div class="toolbar-right">
+            <a href="login.html" class="toolbar-button">Iniciar Sesión</a>
+            <a href="registro.html" class="toolbar-button">Registrarse</a>
+        </div>
+    </div>
+
+    <!-- Contenido principal de tu página -->
+    <div class="content">
+        <!-- Aquí va el contenido principal de tu página -->
+    </div>
 </body>
 </html>

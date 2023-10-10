@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div><span>Iniciar</span>Sesion</div><br>
+            <a href="{% url 'index' %}" class="home-link">Home</a>
+		</div>
+		<br>
+		<div class="login">
+				<input type="text" placeholder="username" name="user"><br>
+				<input type="password" placeholder="password" name="password"><br>
+				<input type="button" value="Login" >
+				<p>No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
+		</div>
+</body>
+</html>
