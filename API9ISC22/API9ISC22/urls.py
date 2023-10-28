@@ -19,11 +19,15 @@ from api.views import Home
 from api.views import Registro
 from api.views import Login
 from api.views import ProcesarRegistroView
+from api.views import LoginView
+from api.views import Catalogo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Home.as_view(),name='index'),
     path('registro.html', Registro.as_view(), name='registro'),
     path('login.html',Login.as_view(),name='login'),
+    path('catalogo.html',Catalogo.as_view(),name='catalogo'),
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
+    path('login/', LoginView.as_view(), name='loginview'),
 ]

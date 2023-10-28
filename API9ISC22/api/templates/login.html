@@ -16,10 +16,16 @@
 		</div>
 		<br>
 		<div class="login">
+			<form method="post" action="{% url 'loginview' %}">
+				{% csrf_token %}
 				<input type="text" placeholder="username" name="user"><br>
 				<input type="password" placeholder="password" name="password"><br>
-				<input type="button" value="Login" >
+				<input type="submit" value="Login">
 				<p>No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
-		</div>
-</body>
+				{% if error_message %}
+					<p>{{ error_message }}</p>
+				{% endif %}
+			</form>
+			
+	</body>
 </html>
