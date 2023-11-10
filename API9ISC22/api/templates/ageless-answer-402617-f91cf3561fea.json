@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "ageless-answer-402617",
+  "private_key_id": "f91cf3561fea09da8d51e60ab4fa2cfe2b5af17d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCsWTfMpuUkRHtA\nOAdS3XPuiqMryqmMW4pT/gXw3Z55iH0YxWVZgj1LwqWdgwC6tZe5aCaTVlRN2LU7\nC6RzP4xP76csHnKAEfWYaLUErz8Vp4/iQrsHubvUYQvgIDHJBtwT3VrZyFwd5OcC\ntal8/USLFhX/oMZOgAnVEm92iGhDCKishlAvbirNx0rAaso247VTgwvScMTAcTy2\n/4ZrGExeQntZfUibWWF/Sp7jjeFj1cDqS0No22X5gTVj+Xh35p7/S2nv0FM0fZ2X\n+YAfq8DfARxlJZbFlp7/SA7S9L60Kiu4iJ/axDyufRcy/ypF8cVsYO3zsa/I9sN5\nrxyGQoelAgMBAAECggEADRwIM4fqXBTdbygT3oi7vcRL3xPeS6/W2Ma0uvqQiFwK\nb+zr5aATe4TFxjJlxs3zSYYTkRd6+CTovCIJkz6dNKNdCu0R9o3nKX2lb0LJQKNr\nPWGoClFlaSUsmxK31ruv1875jyE/aIK1063vw3McWJwIdlZLX0M7/DoXwmNj0t1g\nyon1InYUR+inwhHQkmpr72o+R2dTEv4I5sPF8H2ScnkxbSFnAZ325dKHiJqJ5fZ5\ndnwMG4Mt4I1FM7sl0OtzEC1/7nSRrTzshLGhKwbE6P6rPCqPlS7V4449zUp3nJPo\nScvpyL08BH4qpyODWiqpEL1IxNmDsIyFvOpQJARV7QKBgQDTPFlA7i9wacrPCNPD\n4VYraMUc/nODZhKgmezIOJs7GH8PkJ5z0YwU29Ih/S+KX4cXhAenzojQdXhj/CMe\nsDtB5cNlJP0RdSAqAordFoih0W4k/gAunCwdPluJeuR6GHYIGPKc9dFFKhqpFmyw\niFBJrqrssbqPCZ/JOE1oQDoxvwKBgQDQ3zdmBY+FcfU1RgRF8zXO164u1VhIEGoE\nEIIYAH6poz8JEMZhMHXRJJqr4ctWu/tKzrEqv8vcwfW6Fz6sjyqRjSbZ6fiv6XHM\n21FE+QPmutAeB5Yxe5zHXqAjlwKClxtD1mv5TxjTyeiPOCQKAsCx2QNrtTB2dD/N\nWXbOzoHXmwKBgQCMOSaCvNrPA9t2vkRdZsud+2nGSn+B/ZNl+2g8rZ8WhrdqLLWS\n6srT2ezPVVRmxe1WxfWTBr65qxFlRi5GI/TiVNT14q0AFsFoQdHO3DONQAqfEeIr\nDs8WBpwbUnIzPuOzkmQTn/bws/eIwXMbaRHrJ8EdaQoQA/KHUBHKn8BB3wKBgQDH\n/VIvzxcycICWN6oTx+E3YW+XzBKxPXYk2iGWFbMxfer3JSatHBdS3zdxZ8qoC2l6\noRklk2sAvn4nZeZOlu3tWzdd4xaIaH7b5QqVfdBsdWabuivmyTK9+i5epVJz83bZ\np07O8RsWffa8Wsa3Bxe1sdICqQP0By6n0gdd0ICmDQKBgAqfe0hzJgrmrq0jBalm\nX/B19W5nmrD5xKJAWL5adRd1GfZQDdhUdZ/562AI8zUnWtflcmglKma9EUGDRMxu\nz2QhtWMOAdVGlXe3ncH0DIsRasF1z9cUDR/xjvQQBO2c4ePJ/Hwafonq7GeCnodZ\nZ7U2otANU7Dkja7mvHxuVxCS\n-----END PRIVATE KEY-----\n",
+  "client_email": "hoja-de-calculo@ageless-answer-402617.iam.gserviceaccount.com",
+  "client_id": "101263119482874474307",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hoja-de-calculo%40ageless-answer-402617.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

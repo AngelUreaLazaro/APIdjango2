@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import Home 
+from api.views import Home
 from api.views import Registro
 from api.views import Login
 from api.views import ProcesarRegistroView
 from api.views import LoginView
 from api.views import Catalogo
+from api.views import Graficas
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +32,7 @@ urlpatterns = [
     path('catalogo.html',Catalogo.as_view(),name='catalogo'),
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
     path('login/', LoginView.as_view(), name='loginview'),
+    path('graficas/', Graficas.as_view(), name='graficas'),
+    
 ]
+

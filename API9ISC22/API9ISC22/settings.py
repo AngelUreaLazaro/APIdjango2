@@ -77,8 +77,14 @@ WSGI_APPLICATION = 'API9ISC22.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'formdjango',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '',
+        
+        #'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -132,7 +138,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'juangarcia652307@gmail.com'
 EMAIL_HOST_PASSWORD = 'jcws twkx ipkr nppz'
-
 
 
 

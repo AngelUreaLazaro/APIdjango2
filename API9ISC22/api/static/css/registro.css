@@ -84,7 +84,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
-.registro-form input[type="button"] {
+.registro-form input[type="submit"] {
     width: 260px;
     height: 35px;
     background: #fff;
@@ -99,11 +99,11 @@ body {
     margin-top: 10px;
 }
 
-.registro-form input[type="button"]:hover {
+.registro-form input[type="submit"]:hover {
     opacity: 0.8;
 }
 
-.registro-form input[type="button"]:active {
+.registro-form input[type="submit"]:active {
     opacity: 0.6;
 }
 
