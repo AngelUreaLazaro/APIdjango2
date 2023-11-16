@@ -28,6 +28,10 @@ class Catalogo(APIView):
     template_catalogo='catalogo.html'
     def get(self,request):
         return render(request,self.template_catalogo)
+class Arduinouno(APIView):
+    template_catalogo='arduino-uno.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
 
 
 class ProcesarRegistroView(APIView):

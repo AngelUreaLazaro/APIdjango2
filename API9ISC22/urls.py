@@ -22,7 +22,7 @@ from api.views import ProcesarRegistroView
 from api.views import LoginView
 from api.views import Catalogo
 from api.views import Graficas
-
+from api.views import Arduinouno
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +33,7 @@ urlpatterns = [
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
     path('login/', LoginView.as_view(), name='loginview'),
     path('graficas/', Graficas.as_view(), name='graficas'),
+    path('arduinouno/', Arduinouno.as_view(), name='arduinouno'),
     
 ]
 
