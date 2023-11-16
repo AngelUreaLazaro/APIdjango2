@@ -145,6 +145,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'juangarcia652307@gmail.com'
 EMAIL_HOST_PASSWORD = 'jcws twkx ipkr nppz'
 
-
-
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+

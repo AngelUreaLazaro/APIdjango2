@@ -1,0 +1,99 @@
+
+/* Reset de estilos para eliminar márgenes y rellenos predeterminados */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo básico para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333; /* Color de texto predeterminado */
+    font-size: 16px;
+}
+
+/* Estilo para la barra de herramientas */
+.toolbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar-button {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.toolbar-button:hover {
+    opacity: 0.8;
+}
+
+/* Estilo para el contenido principal */
+.content {
+    padding: 20px;
+}
+
+/* Estilo para enlaces */
+a {
+    color: #5379fa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #3258c8;
+}
+
+/* Estilos para los botones */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5379fa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #3258c8;
+}
+
+/* Estilos para los formularios */
+.form {
+    margin-top: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+    color: #ff0000;
+    margin-top: 5px;
+}
+
+/* Estilos para los mensajes de éxito */
+.success-message {
+    color: #00ff00;
+    margin-top: 5px;
+}
