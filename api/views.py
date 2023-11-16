@@ -32,8 +32,6 @@ class Arduinouno(APIView):
     template_catalogo='arduino-uno.html'
     def get(self,request):
         return render(request,self.template_catalogo)
-
-
 class ProcesarRegistroView(APIView):
     template_name = 'registro.html'
 
@@ -62,9 +60,6 @@ class ProcesarRegistroView(APIView):
             return redirect('login')
 
         return render(request, self.template_name, {'form': form})
-
-
-
 class LoginView(APIView):
     template_name = 'login.html'  # Reemplaza 'login.html' con el nombre de tu plantilla de inicio de sesión
 
@@ -89,9 +84,6 @@ class LoginView(APIView):
             # Las credenciales son incorrectas
             # Realiza las acciones necesarias aquí
             return render(request, self.template_name, {'error_message': 'Credenciales incorrectas'})
-
-
-
 
 from rest_framework.response import Response
 from django.shortcuts import render
@@ -247,4 +239,28 @@ class Graficas(APIView):
             'labels_pregunta10': labels_pregunta10,
             'data_pregunta10': data_pregunta10,
             # Agrega aquí las variables para las otras preguntas
+        })
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+from .models import Product
+from .serializers import ProductSerializer, DescriptionSerializer
+from .utils import get_chatgpt_description
+
+class ProductDetailView(APIView):
+    def get(self, request, product_slug):
+        product = get_product_by_slug(product_slug)
+
+        if not product:
+            return Response({"error": "Producto no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+
+        description = get_chatgpt_description(product.name)
+
+        serializer_product = ProductSerializer(product)
+        serializer_description = DescriptionSerializer({"description": description})
+
+        return Response({
+            "product": serializer_product.data,
+            "description": serializer_description.data,
         })
