@@ -23,7 +23,7 @@ from api.views import LoginView
 from api.views import Catalogo
 from api.views import Graficas
 from api.views import Arduinouno
-from api.views import ProductDetailView
+from api.views import ChatGPTInfoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +35,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='loginview'),
     path('graficas/', Graficas.as_view(), name='graficas'),
     path('arduino-uno.html/', Arduinouno.as_view(), name='arduinouno'),
-    path('<slug:product_slug>/', ProductDetailView.as_view(), name='product_detail_api'),
+    path('api/chatgpt/<str:prompt>/', ChatGPTInfoView.as_view(), name='api_chatgpt'),
 ]
 

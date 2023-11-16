@@ -8,13 +8,14 @@
 <body>
     <h1>Detalles de Arduino Uno</h1>
 
-    <img src="arduinouno.jpg" alt="Arduino Uno">
+    <img src="{% static 'img/arduinouno.jpg' %}" alt="Arduino Uno">
 
-    <p>Descripción: Arduino Uno es una placa de desarrollo...</p>
+    <p>Descripción: {{ chatgpt_response }}</p>
 
     <p>Precio: $XX.XX</p>
 
-    <!-- Agrega opciones de compra, enlaces a Amazon, etc. -->
+    <a href="{% url 'catalogo' %}">Volver al Catálogo</a>
+
 
 </body>
 </html>

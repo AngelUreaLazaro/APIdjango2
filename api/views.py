@@ -240,27 +240,59 @@ class Graficas(APIView):
             'data_pregunta10': data_pregunta10,
             # Agrega aquí las variables para las otras preguntas
         })
+import requests
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
 
-from .models import Product
-from .serializers import ProductSerializer, DescriptionSerializer
-from .utils import get_chatgpt_description
+class ChatGPTInfoView(APIView):
+    def get(self, request, prompt):
+        api_key = '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'
+        chatgpt_api_url = 'https://api.openai.com/v1/chat/completions'
 
-class ProductDetailView(APIView):
-    def get(self, request, product_slug):
-        product = get_product_by_slug(product_slug)
+        headers = {
+            'Authorization': f'Bearer {api_key}',
+            'Content-Type': 'application/json',
+        }
 
-        if not product:
-            return Response({"error": "Producto no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+        data = {
+            'model': 'gpt-3.5-turbo',
+            'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'},
+                         {'role': 'user', 'content': prompt}],
+        }
 
-        description = get_chatgpt_description(product.name)
+        response = requests.post(chatgpt_api_url, headers=headers, json=data)
 
-        serializer_product = ProductSerializer(product)
-        serializer_description = DescriptionSerializer({"description": description})
+        if response.status_code == 200:
+            chatgpt_response = response.json()['choices'][0]['message']['content']
+        else:
+            chatgpt_response = 'Error al obtener información.'
 
-        return Response({
-            "product": serializer_product.data,
-            "description": serializer_description.data,
-        })
+        return Response({'chatgpt_response': chatgpt_response})
+
+def arduino_uno_details(request):
+    prompt = 'Información sobre Arduino Uno'
+    
+    # Llamada a la API de ChatGPT para obtener información dinámica
+    api_key = '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'
+    chatgpt_api_url = 'https://api.openai.com/v1/chat/completions'
+
+    headers = {
+        'Authorization': f'Bearer {api_key}',
+        'Content-Type': 'application/json',
+    }
+
+    data = {
+        'model': 'gpt-3.5-turbo',
+        'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'},
+                     {'role': 'user', 'content': prompt}],
+    }
+
+    response = requests.post(chatgpt_api_url, headers=headers, json=data)
+
+    if response.status_code == 200:
+        chatgpt_response = response.json()['choices'][0]['message']['content']
+    else:
+        chatgpt_response = 'Error al obtener información.'
+
+    return render(request, 'arduino-uno.html', {'chatgpt_response': chatgpt_response})
