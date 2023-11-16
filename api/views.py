@@ -7,9 +7,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from django.http import HttpResponse
 from django.conf import settings
-from django.views.generic import View, TemplateView
 from .models import DatosCSV
 
 
