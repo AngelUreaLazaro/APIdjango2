@@ -33,7 +33,7 @@ urlpatterns = [
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
     path('login/', LoginView.as_view(), name='loginview'),
     path('graficas/', Graficas.as_view(), name='graficas'),
-    path('arduinouno/', Arduinouno.as_view(), name='arduinouno'),
+    path('arduino-uno.html/', Arduinouno.as_view(), name='arduinouno'),
     
 ]
 
