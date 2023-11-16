@@ -291,5 +291,6 @@ def arduino_uno_details(request):
 
     # Llamada a la API de ChatGPT para obtener información dinámica
     chatgpt_response = ChatGPTInfoView.as_view()(request, prompt).data['chatgpt_response']
+    print(chatgpt_response)
 
     return render(request, 'arduino-uno.html', {'chatgpt_response': chatgpt_response})
