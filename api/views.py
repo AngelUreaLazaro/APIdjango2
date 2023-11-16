@@ -288,27 +288,8 @@ class ChatGPTInfoView(APIView):
 
 def arduino_uno_details(request):
     prompt = 'Información sobre Arduino Uno'
-    
+
     # Llamada a la API de ChatGPT para obtener información dinámica
-    api_key = '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'
-    chatgpt_api_url = 'https://api.openai.com/v1/chat/completions'
-
-    headers = {
-        'Authorization': f'Bearer {api_key}',
-        'Content-Type': 'application/json',
-    }
-
-    data = {
-        'model': 'gpt-3.5-turbo',
-        'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'},
-                     {'role': 'user', 'content': prompt}],
-    }
-
-    response = requests.post(chatgpt_api_url, headers=headers, json=data)
-
-    if response.status_code == 200:
-        chatgpt_response = response.json()['choices'][0]['message']['content']
-    else:
-        chatgpt_response = 'Error al obtener información.'
+    chatgpt_response = ChatGPTInfoView.as_view()(request, prompt).data['chatgpt_response']
 
     return render(request, 'arduino-uno.html', {'chatgpt_response': chatgpt_response})
