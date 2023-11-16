@@ -8,24 +8,24 @@
 <body>
     <h1>Detalles de Arduino Uno</h1>
 
-    <img src= 'img/arduinouno.jpg' alt="Arduino Uno">
-
-    <p>Descripción: {{ chatgpt_response }}</p>
-
-    <p>Precio: $XX.XX</p>
-
-    <a href="{% url 'catalogo' %}">Volver al Catálogo</a>
-
+    <!-- Script para hacer la solicitud a la API de ChatGPT desde el lado del cliente -->
     <script>
         var prompt = '{{ prompt }}';
-    
-        // Realiza la consulta a la API de ChatGPT utilizando JavaScript
+
         fetch('/api/chatgpt/' + prompt)
             .then(response => response.json())
             .then(data => {
-                console.log('Respuesta de la API de ChatGPT:', data);
+                // Manipula la respuesta de ChatGPT como lo necesites
+                console.log(data);
+                // Por ejemplo, actualiza un elemento HTML con la respuesta
+                document.getElementById('chatgpt-response').innerText = data.chatgpt_response;
             })
             .catch(error => console.error('Error al obtener información de ChatGPT:', error));
     </script>
+
+    <!-- Muestra la información obtenida de ChatGPT -->
+    <p id="chatgpt-response">Cargando información...</p>
+
+    <!-- Otro contenido de la página si es necesario -->
 </body>
 </html>
