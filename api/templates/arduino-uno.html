@@ -16,6 +16,16 @@
 
     <a href="{% url 'catalogo' %}">Volver al Catálogo</a>
 
-
+    <script>
+        var prompt = '{{ prompt }}';
+    
+        // Realiza la consulta a la API de ChatGPT utilizando JavaScript
+        fetch('/api/chatgpt/' + prompt)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Respuesta de la API de ChatGPT:', data);
+            })
+            .catch(error => console.error('Error al obtener información de ChatGPT:', error));
+    </script>
 </body>
 </html>
