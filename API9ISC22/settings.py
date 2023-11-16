@@ -147,3 +147,4 @@ EMAIL_HOST_PASSWORD = 'jcws twkx ipkr nppz'
 
 
 
+STATICFILES_DIRS = [BASE_DIR / 'static']
