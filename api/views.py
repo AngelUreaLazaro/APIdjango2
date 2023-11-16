@@ -1,5 +1,4 @@
 from django.shortcuts import redirect, render
-from httplib2 import Response
 from rest_framework.views import APIView
 from .models import Usuario
 from .forms import RegistroForm
@@ -12,7 +11,6 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.views.generic import View, TemplateView
 from .models import DatosCSV
-import httplib2
 
 
 # Create your views here.
