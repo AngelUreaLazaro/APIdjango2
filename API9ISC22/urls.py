@@ -23,6 +23,10 @@ from api.views import LoginView
 from api.views import Catalogo
 from api.views import Graficas
 from api.views import Arduinouno
+from api.views import Arduinomega
+from api.views import Protoboard
+from api.views import Sensor
+from api.views import PIC
 from api.views import ChatGPTInfoView
 
 urlpatterns = [
@@ -34,7 +38,11 @@ urlpatterns = [
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
     path('login/', LoginView.as_view(), name='loginview'),
     path('graficas/', Graficas.as_view(), name='graficas'),
-    path('arduino-uno.html/', Arduinouno.as_view(), name='arduinouno'),
     path('api/chatgpt/<str:prompt>/', ChatGPTInfoView.as_view(), name='api_chatgpt'),
+    path('arduino-uno.html/', Arduinouno.as_view(), name='arduinouno'),
+    path('arduino-mega.html/', Arduinomega.as_view(), name='arduinomega'),
+    path('protoboard.html/', Protoboard.as_view(), name='protoboard'),
+    path('sensor.html/', Sensor.as_view(), name='sensor'),
+    path('pic.html/', PIC.as_view(), name='pic'),
 ]
 

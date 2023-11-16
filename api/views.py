@@ -32,6 +32,22 @@ class Arduinouno(APIView):
     template_catalogo='arduino-uno.html'
     def get(self,request):
         return render(request,self.template_catalogo)
+class Arduinomega(APIView):
+    template_catalogo='arduino-mega.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class Protoboard(APIView):
+    template_catalogo='protoboard.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class PIC(APIView):
+    template_catalogo='pic.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class Sensor(APIView):
+    template_catalogo='sensor.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
 class ProcesarRegistroView(APIView):
     template_name = 'registro.html'
 
