@@ -299,7 +299,7 @@ class ComponentDetailView(APIView):
     template_name = 'component_detail.html'
 
     def get(self, request, *args, **kwargs):
-        user_agent = "TuNombreDeUsuario/1.0 (tu@email.com)"  # Sustituye con tu información
+        user_agent = "Angelstoff/1.0 (juangarcia652307@gmail.com)"  # Sustituye con tu información
 
         wiki_wiki = wikipediaapi.Wikipedia('es', user_agent)
         component_name = kwargs.get('component_name')
