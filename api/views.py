@@ -302,7 +302,7 @@ class ComponentDetailView(View):
         component_name = kwargs.get('component_name')
 
         try:
-            page_summary = wikipedia.summary(component_name, sentences=1, lang='es')
+            page_summary = wikipedia.summary(component_name, sentences=1)
             description_wikipedia = page_summary
         except wikipedia.exceptions.DisambiguationError as e:
             # En caso de ambigüedad en la búsqueda, manejarlo de acuerdo a tus necesidades
