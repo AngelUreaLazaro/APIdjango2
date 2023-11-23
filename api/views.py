@@ -295,13 +295,13 @@ from django.shortcuts import render
 from django.views import View
 import wikipediaapi
 
-class ComponentDetailView(APIView):
+class ComponentDetailView(View):
     template_name = 'component_detail.html'
 
     def get(self, request, *args, **kwargs):
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0"  # Este es un ejemplo, puedes cambiarlo según tus necesidades
 
-        wiki_wiki = wikipediaapi.Wikipedia('es', extract_format=wikipediaapi.ExtractFormat.WIKI, user_agent=user_agent)
+        wiki_wiki = wikipediaapi.Wikipedia('es', user_agent=user_agent)
         component_name = kwargs.get('component_name')
 
         page_py = wiki_wiki.page(component_name)
