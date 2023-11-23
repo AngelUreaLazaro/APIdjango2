@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,38 +10,47 @@
 
     <div class="product">
         <h2>Arduino Uno</h2>
-        <a href="{% url 'arduinouno' %}">
+        <a href="{% url 'component_detail' component_name='arduino-uno' %}">
+            <img src="{% static 'img/arduinouno.jpg' %}" alt="Arduino Uno">
+        </a>
+    </div>
+
+    <div class="product">
+        <h2>Arduino Uno</h2>
+        <a href="{% url 'component_detail' component_name='arduino-uno' %}">
             <img src="{% static 'img/arduinouno.jpg' %}" alt="Arduino Uno">
         </a>
     </div>
 
     <div class="product">
         <h2>Protoboard</h2>
-        <a href="{% url 'protoboard' %}">
-            <img src="{% static 'img/proto.jpg' %}" alt="Protoboard">
+        <a href="{% url 'component_detail' component_name='protoboard' %}">
+            <img src="{% static 'img/arduinouno.jpg' %}" alt="Protoboard">
         </a>
     </div>
 
     <div class="product">
         <h2>Arduino Mega</h2>
-        <a href="{% url 'arduinomega' %}">
-            <img src="{% static 'img/arduinomega.jpg' %}" alt="Arduino Mega">
+        <a href="{% url 'component_detail' component_name='arduino-mega' %}">
+            <img src="{% static 'img/arduinouno.jpg' %}" alt="Arduino Mega">
         </a>
     </div>
 
     <div class="product">
-        <h2>Sensor Ultrasonico HC-SR04</h2>
-        <a href="{% url 'sensor' %}">
-            <img src="{% static 'img/sensor.jpg' %}" alt="Sensor Ultrasonico HC-SR04">
+        <h2>pic 16f877a</h2>
+        <a href="{% url 'component_detail' component_name='pic-16f877a' %}">
+            <img src="{% static 'img/arduinouno.jpg' %}" alt="PIC 16F877A">
         </a>
     </div>
 
     <div class="product">
-        <h2>PIC 16F877A</h2>
-        <a href="{% url 'pic' %}">
-            <img src="{% static 'img/pic.jpg' %}" alt="PIC 16F877A">
+        <h2>sensor hc-sr04</h2>
+        <a href="{% url 'component_detail' component_name='sensor-hcsr04' %}">
+            <img src="{% static 'img/arduinouno.jpg' %}" alt="Sensor HC-SR04">
         </a>
     </div>
+
+    <!-- Otros productos... -->
 
 </body>
 </html>

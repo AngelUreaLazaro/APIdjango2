@@ -28,6 +28,7 @@ from api.views import Protoboard
 from api.views import Sensor
 from api.views import PIC
 from api.views import ChatGPTInfoView,  arduino_uno_details
+from api.views import ComponentDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,5 +46,7 @@ urlpatterns = [
     path('protoboard.html/', Protoboard.as_view(), name='protoboard'),
     path('sensor.html/', Sensor.as_view(), name='sensor'),
     path('pic.html/', PIC.as_view(), name='pic'),
+    path('componente/<str:component_name>/', ComponentDetailView.as_view(), name='component_detail'),
 ]
+
 

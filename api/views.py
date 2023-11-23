@@ -274,7 +274,7 @@ class ChatGPTInfoView(APIView):
         data = {
             'model': 'gpt-3.5-turbo',
             'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'},
-                         {'role': 'user', 'content': prompt}],
+                        {'role': 'user', 'content': prompt}],
         }
 
         response = requests.post(chatgpt_api_url, headers=headers, json=data)
@@ -289,3 +289,34 @@ class ChatGPTInfoView(APIView):
 def arduino_uno_details(request):
     prompt = 'Información sobre Arduino Uno'
     return render(request, 'arduino-uno.html', {'prompt': prompt})
+
+
+from django.shortcuts import render
+from django.views import View
+import wikipediaapi
+
+from django.shortcuts import render
+from django.views import View
+import wikipediaapi
+
+class ComponentDetailView(View):
+    template_name = 'component_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        wiki_wiki = wikipediaapi.Wikipedia('es')
+        component_name = kwargs.get('component_name')
+
+        page_py = wiki_wiki.page(component_name)
+
+        if not page_py.exists():
+            description_wikipedia = "No se encontró información en Wikipedia."
+        else:
+            description_wikipedia = page_py.text[:300]
+
+        context = {
+            'nombre_componente': component_name,
+            'descripcion_wikipedia': description_wikipedia,
+            # Otros datos necesarios para tu plantilla
+        }
+
+        return render(request, self.template_name, context)
