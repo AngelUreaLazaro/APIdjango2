@@ -51,14 +51,3 @@ h1 {
         margin: 20px 0;
     }
 }
-
-.title-bar {
-    background-color: #3498db; /* Color azul, puedes cambiarlo según tus preferencias */
-    color: #fff; /* Color de texto blanco para contrastar */
-    padding: 10px;
-    text-align: center;
-}
-
-.title-bar h1 {
-    margin: 0;
-}
