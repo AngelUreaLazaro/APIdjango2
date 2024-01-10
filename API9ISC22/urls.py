@@ -21,7 +21,6 @@ from api.views import Login
 from api.views import ProcesarRegistroView
 from api.views import LoginView
 from api.views import Catalogo
-from api.views import Graficas
 from api.views import Arduinouno
 from api.views import Arduinomega
 from api.views import Protoboard
@@ -40,7 +39,6 @@ urlpatterns = [
     path('catalogo.html',Catalogo.as_view(),name='catalogo'),
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
     path('login/', LoginView.as_view(), name='loginview'),
-    path('graficas/', Graficas.as_view(), name='graficas'),
     path('arduino-uno/', arduino_uno_details, name='arduino_uno_details'),
     path('arduino-uno.html/', Arduinouno.as_view(), name='arduinouno'),
     path('arduino-mega.html/', Arduinomega.as_view(), name='arduinomega'),

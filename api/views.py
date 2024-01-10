@@ -15,98 +15,6 @@ from .models import DatosCSV
 class Home(APIView):
     template_name='index.html'
     def get(self,request):
-        return render(request,self.template_name)
-class Registro(APIView):
-    template_registro='registro.html'    
-    def get(self,request):
-        return render(request,self.template_registro)
-class Login(APIView):
-    template_login='login.html'
-    def get(self,request):
-        return render(request,self.template_login)
-class Catalogo(APIView):
-    template_catalogo='catalogo.html'
-    def get(self,request):
-        return render(request,self.template_catalogo)
-class Arduinouno(APIView):
-    template_catalogo='arduino-uno.html'
-    def get(self,request):
-        return render(request,self.template_catalogo)
-class Arduinomega(APIView):
-    template_catalogo='arduino-mega.html'
-    def get(self,request):
-        return render(request,self.template_catalogo)
-class Protoboard(APIView):
-    template_catalogo='protoboard.html'
-    def get(self,request):
-        return render(request,self.template_catalogo)
-class PIC(APIView):
-    template_catalogo='pic.html'
-    def get(self,request):
-        return render(request,self.template_catalogo)
-class Sensor(APIView):
-    template_catalogo='sensor.html'
-    def get(self,request):
-        return render(request,self.template_catalogo)
-class ProcesarRegistroView(APIView):
-    template_name = 'registro.html'
-
-    def post(self, request):
-        form = RegistroForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-
-            # Componer el mensaje de correo electrónico
-            subject = 'Confirmación de Registro'
-            message = '¡Gracias por registrarte en nuestro sitio web! Tus detalles de registro son:'
-            message += f'\nNombre: {user.nombre}'
-            message += f'\nNombre de Usuario: {user.usuario}'
-            message += f'\nCorreo electrónico: {user.email}'
-            # Puedes agregar otros detalles de registro aquí
-
-            from_email = settings.EMAIL_HOST_USER
-            recipient_list = [user.email]  # Usar el correo proporcionado por el usuario
-
-            # Enviar el correo electrónico
-            send_mail(
-                subject, message, from_email, recipient_list,
-                fail_silently=False,
-            )
-
-            return redirect('login')
-
-        return render(request, self.template_name, {'form': form})
-class LoginView(APIView):
-    template_name = 'login.html'  # Reemplaza 'login.html' con el nombre de tu plantilla de inicio de sesión
-
-    def get(self, request):
-        return render(request, self.template_name)
-
-    def post(self, request):
-        usuario = request.POST.get('user')
-        contrasena = request.POST.get('password')
-
-        # Consulta la base de datos para encontrar un usuario con los datos ingresados
-        try:
-            user = Usuario.objects.get(usuario=usuario, contrasena=contrasena)
-        except Usuario.DoesNotExist:
-            user = None
-
-        if user is not None:
-            # Las credenciales son válidas
-            # Realiza las acciones necesarias aquí
-            return redirect('catalogo')  # Cambia 'catalogo' al nombre de tu página de destino
-        else:
-            # Las credenciales son incorrectas
-            # Realiza las acciones necesarias aquí
-            return render(request, self.template_name, {'error_message': 'Credenciales incorrectas'})
-
-from rest_framework.response import Response
-from django.shortcuts import render
-from .models import DatosCSV
-
-class Graficas(APIView):
-    def get(self, request):
         datos = DatosCSV.objects.all()
 
         # Procesa los datos para contar las respuestas a "pregunta1"
@@ -224,7 +132,7 @@ class Graficas(APIView):
 
         # Puedes repetir el proceso para las otras preguntas
 
-        return render(request, 'index.html', {
+        return render(request, self.template_name,{
             'labels_pregunta1': labels_pregunta1,
             'data_pregunta1': data_pregunta1,
 
@@ -256,6 +164,98 @@ class Graficas(APIView):
             'data_pregunta10': data_pregunta10,
             # Agrega aquí las variables para las otras preguntas
         })
+        
+class Registro(APIView):
+    template_registro='registro.html'    
+    def get(self,request):
+        return render(request,self.template_registro)
+class Login(APIView):
+    template_login='login.html'
+    def get(self,request):
+        return render(request,self.template_login)
+class Catalogo(APIView):
+    template_catalogo='catalogo.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class Arduinouno(APIView):
+    template_catalogo='arduino-uno.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class Arduinomega(APIView):
+    template_catalogo='arduino-mega.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class Protoboard(APIView):
+    template_catalogo='protoboard.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class PIC(APIView):
+    template_catalogo='pic.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class Sensor(APIView):
+    template_catalogo='sensor.html'
+    def get(self,request):
+        return render(request,self.template_catalogo)
+class ProcesarRegistroView(APIView):
+    template_name = 'registro.html'
+
+    def post(self, request):
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+
+            # Componer el mensaje de correo electrónico
+            subject = 'Confirmación de Registro'
+            message = '¡Gracias por registrarte en nuestro sitio web! Tus detalles de registro son:'
+            message += f'\nNombre: {user.nombre}'
+            message += f'\nNombre de Usuario: {user.usuario}'
+            message += f'\nCorreo electrónico: {user.email}'
+            # Puedes agregar otros detalles de registro aquí
+
+            from_email = settings.EMAIL_HOST_USER
+            recipient_list = [user.email]  # Usar el correo proporcionado por el usuario
+
+            # Enviar el correo electrónico
+            send_mail(
+                subject, message, from_email, recipient_list,
+                fail_silently=False,
+            )
+
+            return redirect('login')
+
+        return render(request, self.template_name, {'form': form})
+class LoginView(APIView):
+    template_name = 'login.html'  # Reemplaza 'login.html' con el nombre de tu plantilla de inicio de sesión
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        usuario = request.POST.get('user')
+        contrasena = request.POST.get('password')
+
+        # Consulta la base de datos para encontrar un usuario con los datos ingresados
+        try:
+            user = Usuario.objects.get(usuario=usuario, contrasena=contrasena)
+        except Usuario.DoesNotExist:
+            user = None
+
+        if user is not None:
+            # Las credenciales son válidas
+            # Realiza las acciones necesarias aquí
+            return redirect('catalogo')  # Cambia 'catalogo' al nombre de tu página de destino
+        else:
+            # Las credenciales son incorrectas
+            # Realiza las acciones necesarias aquí
+            return render(request, self.template_name, {'error_message': 'Credenciales incorrectas'})
+
+from rest_framework.response import Response
+from django.shortcuts import render
+from .models import DatosCSV
+
+
+        
 import requests
 from django.shortcuts import render
 from rest_framework.views import APIView
