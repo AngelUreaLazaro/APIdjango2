@@ -18,19 +18,15 @@
     <p>Precio: $XX.XX</p>
 
     <!-- Agrega un botón de descarga con un identificador único -->
-    <button id="downloadBtn" onclick="sendEmail('{{ nombre_componente }}')">Descargar Hoja de Datos</button>
+    <button id="downloadBtn" onclick="sendEmail('{{ nombre_componente }}')">Enviar Datos</button>
 
     <a href="{% url 'catalogo' %}">Volver al Catálogo</a>
 
     <script>
         function sendEmail(componentName) {
-            // Aquí deberías implementar la lógica para enviar el correo electrónico.
-            // Puedes utilizar servicios de backend (por ejemplo, Node.js, Python, PHP) para enviar correos.
-            // La implementación exacta dependerá del entorno en el que estés trabajando.
-
-            // Aquí hay un ejemplo simple que muestra un mensaje en la consola.
-            console.log(`Se ha solicitado la hoja de datos para ${componentName}.`);
-        }
+        // Redirige a la URL de envío de correo electrónico y pasa el nombre del componente
+        window.location.href = `/send_email/${componentName}/`;
+    }
     </script>
 </body>
 </html>

@@ -12,6 +12,9 @@ class Usuario(models.Model):
     usuario = models.CharField(max_length=50)
     contrasena = models.CharField(max_length=100)  
 
+    def get_email(self):
+        return self.email
+
 class DatosCSV(models.Model):
     Marca_temporal = models.CharField(max_length=100)
     correo = models.CharField(max_length=100)

@@ -292,3 +292,39 @@ class ComponentDetailView(View):
         }
 
         return render(request, self.template_name, context)
+    
+
+from django.views import View
+from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from django.conf import settings
+from .models import Usuario  # Asegúrate de importar tu modelo Usuario
+
+class SendEmailView(View):
+    def get(self, request, component_name, *args, **kwargs):
+        # Obtener el usuario asociado al componente (ajusta según tu lógica)
+        usuario = get_object_or_404(Usuario, usuario=request.user.username)
+
+        # Obtener la dirección de correo electrónico del usuario
+        correo_usuario = usuario.get_email()
+
+        # Obtener la información del componente según tu lógica
+        component_info = {
+            'nombre_componente': component_name,
+            'descripcion': 'Descripción del componente',
+            'precio': '$XX.XX',
+            # Otros datos necesarios
+        }
+
+        # Componer el mensaje de correo electrónico
+        subject = f'Descarga de Hoja de Datos para {component_name}'
+        message = render_to_string('email_template.txt', component_info)
+        from_email = settings.EMAIL_HOST_USER
+        recipient_list = [correo_usuario]  # Usar el correo del usuario
+
+        # Enviar el correo electrónico
+        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+
+        return HttpResponse('Correo enviado con éxito.')

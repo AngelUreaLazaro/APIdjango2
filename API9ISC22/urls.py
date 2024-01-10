@@ -29,6 +29,7 @@ from api.views import Sensor
 from api.views import PIC
 from api.views import arduino_uno_details
 from api.views import ComponentDetailView
+from api.views import SendEmailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -46,6 +47,7 @@ urlpatterns = [
     path('sensor.html/', Sensor.as_view(), name='sensor'),
     path('pic.html/', PIC.as_view(), name='pic'),
     path('componente/<str:component_name>/', ComponentDetailView.as_view(), name='component_detail'),
+    path('send_email/<str:component_name>/', SendEmailView.as_view(), name='send_email'),
 ]
 
 
