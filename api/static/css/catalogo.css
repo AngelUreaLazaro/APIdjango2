@@ -13,14 +13,16 @@ h1 {
 }
 
 .product {
-    background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 20px;
-    padding: 15px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* Ajusta el valor de opacidad según tus preferencias */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra para resaltar el elemento */
 }
+
 
 .product h2 {
     color: #333;
