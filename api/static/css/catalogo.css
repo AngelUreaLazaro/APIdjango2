@@ -2,7 +2,9 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-image: url('../img/fondocat.jpg'); /* Ajusta la ruta según la estructura de tu proyecto */
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 h1 {
