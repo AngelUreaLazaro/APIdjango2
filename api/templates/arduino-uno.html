@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Arduino Uno</title>
+</head>
+<body>
+    <h1>Detalles de Arduino Uno</h1>
+
+    <!-- Script para hacer la solicitud a la API de ChatGPT desde el lado del cliente -->
+    <script>
+        var prompt = '{{ prompt }}';
+
+        fetch('/api/chatgpt/' + prompt)
+            .then(response => response.json())
+            .then(data => {
+                // Manipula la respuesta de ChatGPT como lo necesites
+                console.log(data);
+                // Por ejemplo, actualiza un elemento HTML con la respuesta
+                document.getElementById('chatgpt-response').innerText = data.chatgpt_response;
+            })
+            .catch(error => console.error('Error al obtener información de ChatGPT:', error));
+    </script>
+
+    <!-- Muestra la información obtenida de ChatGPT -->
+    <p id="chatgpt-response">Cargando información...</p>
+
+    <!-- Otro contenido de la página si es necesario -->
+</body>
+</html>

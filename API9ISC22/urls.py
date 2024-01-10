@@ -31,6 +31,7 @@ from api.views import arduino_uno_details
 from api.views import ComponentDetailView
 from api.views import SendEmailView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Home.as_view(),name='index'),
@@ -39,7 +40,7 @@ urlpatterns = [
     path('catalogo.html',Catalogo.as_view(),name='catalogo'),
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
     path('login/', LoginView.as_view(), name='loginview'),
-    path('index/', Graficas.as_view(), name='graficas'),
+    path('graficas/', Graficas.as_view(), name='graficas'),
     path('arduino-uno/', arduino_uno_details, name='arduino_uno_details'),
     path('arduino-uno.html/', Arduinouno.as_view(), name='arduinouno'),
     path('arduino-mega.html/', Arduinomega.as_view(), name='arduinomega'),

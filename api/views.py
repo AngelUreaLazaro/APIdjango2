@@ -224,7 +224,7 @@ class Graficas(APIView):
 
         # Puedes repetir el proceso para las otras preguntas
 
-        return render(request, 'index.html', {
+        return render(request, 'graficas.html', {
             'labels_pregunta1': labels_pregunta1,
             'data_pregunta1': data_pregunta1,
 
