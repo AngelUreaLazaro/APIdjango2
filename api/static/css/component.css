@@ -58,3 +58,26 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.title-bar {
+    background-color: #3498db; /* Color azul para la barra de título */
+    color: #fff; /* Color blanco para el texto del título */
+    padding: 10px;
+    text-align: center;
+}
+
+.title-bar h1 {
+    margin: 0;
+}
+
+.description-container {
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo traslúcido para el contenedor de descripción */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.description {
+    /* Estilos adicionales para el contenido de la descripción si es necesario */
+}
+

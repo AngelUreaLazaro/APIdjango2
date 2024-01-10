@@ -13,7 +13,11 @@
 
     <img src="{% static 'img/{{ nombre_componente }}.jpg'%}" alt="{{ nombre_componente }}">
 
-    <p>Descripción: {{ descripcion_wikipedia }}</p>
+    <div class="description-container">
+        <div class="description">
+            <p>Descripción: {{ descripcion_wikipedia }}</p>
+        </div>
+    </div>
 
     <p>Precio: $XX.XX</p>
 
