@@ -330,6 +330,7 @@ def download_pdf(request, component_name):
     p.drawString(100, 800, f"Nombre del Componente: {component_info['nombre_componente']}")
     p.drawString(100, 780, f"Descripción: {component_info['descripcion_wikipedia']}")
     p.drawString(100, 760, f"Precio: {component_info['precio']}")
+    
     # Agregar más información si es necesario
     image_path = os.path.join(settings.BASE_DIR, 'static', 'img', f'{component_name}.jpg')
 
