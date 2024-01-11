@@ -112,5 +112,6 @@ section div {
     border-radius: 10px; /* Esquinas redondeadas */
     margin-top: 20px; /* Espaciado desde la parte superior */
     padding: 20px; /* Espaciado interno */
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para destacar */
 }
