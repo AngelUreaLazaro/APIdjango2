@@ -1,0 +1,24 @@
+<!-- pdf_template.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ nombre_componente }} PDF</title>
+    <style>
+        p {
+            font-family: Helvetica;
+            font-size: 12px;
+            line-height: 15px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <h1>Información del Componente</h1>
+    <p><strong>Nombre del Componente:</strong> {{ nombre_componente }}</p>
+    <p><strong>Descripción:</strong> {{ descripcion_wikipedia }}</p>
+    <p><strong>Precio:</strong> {{ precio }}</p>
+    <img src="{% static 'img/'|add:nombre_componente|add:'.jpg' %}" alt="{{ nombre_componente }}" width="200" height="150">
+    <!-- Agregar más información si es necesario -->
+</body>
+</html>

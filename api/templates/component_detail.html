@@ -11,7 +11,7 @@
 <body>
     <h1>Detalles de {{ nombre_componente }}</h1>
 
-    <img src="{% static 'img/{{ nombre_componente }}.jpg'%}" alt="{{ nombre_componente }}">
+    <img src="{% static 'img/'|add:nombre_componente|add:'.jpg' %}" alt="{{ nombre_componente }}" width="200" height="150">
 
     <div class="description-container">
         <div class="description">
@@ -22,7 +22,7 @@
     <p>Precio: $XX.XX</p>
 
     <!-- Agrega un botón de descarga con un identificador único -->
-    <button id="downloadBtn" onclick="sendEmail('{{ nombre_componente }}')">Enviar Datos</button>
+    <button onclick="window.location.href='{% url 'download_pdf' component_name=nombre_componente %}'">Descargar Hoja de Datos</button>
 
     <a href="{% url 'catalogo' %}">Volver al Catálogo</a>
 

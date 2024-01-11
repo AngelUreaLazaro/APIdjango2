@@ -293,38 +293,53 @@ class ComponentDetailView(View):
 
         return render(request, self.template_name, context)
     
-
-from django.views import View
-from django.shortcuts import get_object_or_404
-from django.core.mail import send_mail
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from django.conf import settings
-from .models import Usuario  # Asegúrate de importar tu modelo Usuario
+from reportlab.pdfgen import canvas
+from django.http import FileResponse
+import os
 
-class SendEmailView(View):
-    def get(self, request, component_name, *args, **kwargs):
-        # Obtener el usuario asociado al componente (ajusta según tu lógica)
-        usuario = get_object_or_404(Usuario, usuario=request.user.username)
+def download_pdf(request, component_name):
+    # Obtener la información del componente según tu lógica
+    try:
+        page_summary = wikipedia.summary(component_name, sentences=1)
+        description_wikipedia = page_summary
+    except wikipedia.exceptions.DisambiguationError as e:
+        # Manejar ambigüedad en la búsqueda según tus necesidades
+        description_wikipedia = f"Error de ambigüedad: {e}"
+    except wikipedia.exceptions.PageError:
+        description_wikipedia = "No se encontró información en Wikipedia."
 
-        # Obtener la dirección de correo electrónico del usuario
-        correo_usuario = usuario.get_email()
+    component_info = {
+        'nombre_componente': component_name,
+        'descripcion_wikipedia': description_wikipedia,
+        'precio': '$XX.XX',
+        # Otros datos necesarios
+    }
 
-        # Obtener la información del componente según tu lógica
-        component_info = {
-            'nombre_componente': component_name,
-            'descripcion': 'Descripción del componente',
-            'precio': '$XX.XX',
-            # Otros datos necesarios
-        }
+    # Renderizar el contenido del PDF sin la imagen
+    pdf_content = render_to_string('pdf_template.html', component_info)
 
-        # Componer el mensaje de correo electrónico
-        subject = f'Descarga de Hoja de Datos para {component_name}'
-        message = render_to_string('email_template.txt', component_info)
-        from_email = settings.EMAIL_HOST_USER
-        recipient_list = [correo_usuario]  # Usar el correo del usuario
+    # Crear el objeto de respuesta para el archivo PDF
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{component_name}.pdf"'
 
-        # Enviar el correo electrónico
-        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+    # Crear el archivo PDF y escribir el contenido
+    p = canvas.Canvas(response)
+    p.drawString(100, 800, f"Nombre del Componente: {component_info['nombre_componente']}")
+    p.drawString(100, 780, f"Descripción: {component_info['descripcion_wikipedia']}")
+    p.drawString(100, 760, f"Precio: {component_info['precio']}")
+    # Agregar más información si es necesario
+    image_path = os.path.join(settings.BASE_DIR, 'static', 'img', f'{component_name}.jpg')
 
-        return HttpResponse('Correo enviado con éxito.')
+    # Verificar si la imagen existe antes de intentar agregarla
+    if os.path.exists(image_path):
+        # Agregar la imagen al PDF
+        p.drawImage(image_path, 100, y_position - line_height, width=200, height=150)
+
+    
+    p.showPage()
+    p.save()
+
+    return response

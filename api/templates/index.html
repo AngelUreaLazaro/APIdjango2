@@ -6,13 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/index.css'%}"> <!-- Enlaza tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <title>CatalogoElectronico</title>
 </head>
 <body>
     <!-- Barra de herramientas -->
     <div class="toolbar">
         <div class="toolbar-left">
-            <a href="{% url 'index' %}" class="toolbar-button">Home</a>
+            <a href="{% url 'index' %}" class="toolbar-button">Catalogo digital de comnponentes electronicos</a>
         </div>
         <div class="toolbar-right">
             <a href="login.html" class="toolbar-button">Iniciar Sesión</a>
@@ -23,68 +24,63 @@
     <!-- Contenido principal de tu página -->
     <div class="content">
         <!-- Aquí va el contenido principal de tu página -->
-    </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta1"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta2"></canvas>
+                </div>
+            </div>
 
-    <section>
-        <div>
-            <canvas id="grafico_pregunta1"></canvas>
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta3"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta4"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta5"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta6"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta7"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta8"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta9"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <canvas id="grafico_pregunta10"></canvas>
+                </div>
+            </div>
         </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta2"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta3"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta4"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta5"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta6"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta7"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta8"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta9"></canvas>
-        </div>
-    </section>
-
-    <section>
-        <div>
-            <canvas id="grafico_pregunta10"></canvas>
-        </div>
-    </section>
-
     <!-- Repite esta estructura para las otras preguntas -->
     
     <script>
@@ -312,5 +308,24 @@
 
         // Repite este código para los otros gráficos
     </script>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Información del Proyecto</h5>
+                    <p class="card-text">
+                        Nuestro catálogo digital te ofrece una amplia variedad de componentes electrónicos esenciales
+                        para tus proyectos. Cada descripción de producto se extrae automáticamente de Wikipedia, brindándote
+                        información precisa y detallada.
+                    </p>
+                    <p class="card-text">
+                        Regístrate hoy para acceder a funciones exclusivas y recibirás un correo de confirmación con
+                        detalles útiles sobre nuestros servicios. ¡Explora nuestro catálogo y encuentra los componentes
+                        electrónicos perfectos para tus proyectos!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
