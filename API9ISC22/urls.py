@@ -29,6 +29,8 @@ from api.views import PIC
 from api.views import arduino_uno_details
 from api.views import ComponentDetailView
 from api.views import download_pdf
+from api.views import Kiosco
+from api.views import Informes
 
 
 
@@ -37,6 +39,8 @@ urlpatterns = [
     path('',Home.as_view(),name='index'),
     path('registro.html', Registro.as_view(), name='registro'),
     path('login.html',Login.as_view(),name='login'),
+    path('kiosco.html',Kiosco.as_view(),name='kiosco'),
+    path('informes.html',Informes.as_view(),name='informes'),
     path('catalogo.html',Catalogo.as_view(),name='catalogo'),
     path('procesar_registro/', ProcesarRegistroView.as_view(), name='procesar_registro'),
     path('login/', LoginView.as_view(), name='loginview'),

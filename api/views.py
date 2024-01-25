@@ -169,6 +169,14 @@ class Registro(APIView):
     template_registro='registro.html'    
     def get(self,request):
         return render(request,self.template_registro)
+class Kiosco(APIView):
+    template_registro='kiosco.html'    
+    def get(self,request):
+        return render(request,self.template_registro)
+class Informes(APIView):
+    template_registro='informes.html'    
+    def get(self,request):
+        return render(request,self.template_registro)
 class Login(APIView):
     template_login='login.html'
     def get(self,request):
