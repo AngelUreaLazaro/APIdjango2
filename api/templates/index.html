@@ -1,331 +1,131 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/index.css'%}"> <!-- Enlaza tu archivo CSS personalizado -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <title>CatalogoElectronico</title>
+    <title>Kiosco</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #611532;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        #imagen-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            border-top-left-radius: 50%;
+        }
+
+        #imagen-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0; /* Comienza con opacidad cero */
+            animation: fadeInOut 30s infinite; /* Ajusta la duración total de la animación */
+        }
+
+        #imagen-container img:nth-child(1) {
+            animation-delay: 0s; /* Primer imagen inmediata */
+        }
+
+        #imagen-container img:nth-child(2) {
+            animation-delay: 7s; /* Segunda imagen después de 10 segundos */
+        }
+
+        #imagen-container img:nth-child(3) {
+            animation-delay: 14s; /* Tercera imagen después de 20 segundos */
+        }
+        #imagen-container img:nth-child(4) {
+            animation-delay: 21s; /* Cuarta imagen después de 30 segundos */
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            25% {
+                opacity: 1;
+            }
+            30% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        #boton-container {
+            position: absolute;
+            top: 50%;
+            right: -100px; /* Recorre el botón más a la derecha */
+            transform: translateY(-50%);
+            z-index: 1; /* Asegura que el botón esté encima del contenedor de imagen */
+        }
+
+        #boton {
+            width: 500px; /* Tamaño aún más grande */
+            height: 500px; /* Tamaño aún más grande */
+            background-color: rgba(144, 12, 63, 0.7); /* Color #900C3F con transparencia */
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: white; /* Cambio de color de texto a blanco */
+            font-size: 24px; /* Tamaño del texto */
+            font-weight: bold;
+        }
+
+        #boton:hover {
+            background-color: rgba(144, 12, 63, 0.9); /* Color #900C3F más oscuro con transparencia al pasar el cursor sobre el botón */
+        }
+
+        #boton a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 1; /* Reducir el espacio entre líneas */
+            color: white; /* Asegura que el color del texto sea blanco */
+        }
+
+        #logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px; /* Ajusta el tamaño según sea necesario */
+            height: auto; /* Altura automática para mantener la proporción */
+            z-index: 2; /* Asegura que el logo esté sobre las imágenes */
+        }
+    </style>
 </head>
 <body>
-    <!-- Barra de herramientas -->
-    <div class="toolbar">
-        <div class="toolbar-left">
-            <a href="{% url 'index' %}" class="toolbar-button">Catalogo digital de comnponentes electronicos</a>
+    <div id="imagen-container">
+        <img src="{% static 'img/municipio.jpg' %}" alt="Imagen 1">
+        <img src="{% static 'img/baile.jpg' %}" alt="Imagen 2">
+        <img src="{% static 'img/chimali.jpg' %}" alt="Imagen 3">
+        <img src="{% static 'img/kiosco.jpg' %}" alt="Imagen 4">
+        <!-- Agrega más imágenes según sea necesario -->
+        
+        <!-- Contenedor del botón -->
+        <div id="boton-container">
+            <button id="boton">
+                <a href="{% url 'informes' %}">Informes de trámites <br> y <br> servicios hacer click</a>
+            </button>
         </div>
-        <div class="toolbar-right">
-            <a href="login.html" class="toolbar-button">Iniciar Sesión</a>
-            <a href="registro.html" class="toolbar-button">Registrarse</a>
-        </div>
+
+        <!-- Logo en la esquina superior izquierda -->
+        
     </div>
-
-    <!-- Contenido principal de tu página -->
-    <div class="content">
-        <!-- Aquí va el contenido principal de tu página -->
-        <div class="row">
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta1"></canvas>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta2"></canvas>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta3"></canvas>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta4"></canvas>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta5"></canvas>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta6"></canvas>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta7"></canvas>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta8"></canvas>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta9"></canvas>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <canvas id="grafico_pregunta10"></canvas>
-                </div>
-            </div>
-        </div>
-    <!-- Repite esta estructura para las otras preguntas -->
-    
-    <script>
-        // Código para el primer gráfico (pregunta1)
-        const ctx1 = document.getElementById('grafico_pregunta1').getContext('2d');
-        const labels1 = {{ labels_pregunta1|safe }};
-        const data1 = {{ data_pregunta1|safe }};
-        new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: labels1,
-                datasets: [{
-                    label: '¿Qué tipo de información adicional te gustaría ver para cada componente?',
-                    data: data1,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // Código para el segundo gráfico (pregunta2)
-        const ctx2 = document.getElementById('grafico_pregunta2').getContext('2d');
-        const labels2 = {{ labels_pregunta2|safe }};
-        const data2 = {{ data_pregunta2|safe }};
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: labels2,
-                datasets: [{
-                    label: '¿Qué es lo mas importante para usted en un catalogo de componentes electrónicos?',
-                    data: data2,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta3)
-        const ctx3 = document.getElementById('grafico_pregunta3').getContext('2d');
-        const labels3 = {{ labels_pregunta3|safe }};
-        const data3 = {{ data_pregunta3|safe }};
-        new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: labels3,
-                datasets: [{
-                    label: '¿Qué método de navegación refieres para encontrar componentes específicos?',
-                    data: data3,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta4)
-        const ctx4 = document.getElementById('grafico_pregunta4').getContext('2d');
-        const labels4 = {{ labels_pregunta4|safe }};
-        const data4 = {{ data_pregunta4|safe }};
-        new Chart(ctx4, {
-            type: 'bar',
-            data: {
-                labels: labels4,
-                datasets: [{
-                    label: '¿Cómo le gustaría que se organizara el catalogo?',
-                    data: data4,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta5)
-        const ctx5 = document.getElementById('grafico_pregunta5').getContext('2d');
-        const labels5 = {{ labels_pregunta5|safe }};
-        const data5 = {{ data_pregunta5|safe }};
-        new Chart(ctx5, {
-            type: 'bar',
-            data: {
-                labels: labels5,
-                datasets: [{
-                    label: '¿Qué funcionalidad adicional seria valiosa para facilitar la toma de decisiones de compra? ',
-                    data: data5,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta6)
-        const ctx6 = document.getElementById('grafico_pregunta6').getContext('2d');
-        const labels6 = {{ labels_pregunta6|safe }};
-        const data6 = {{ data_pregunta6|safe }};
-        new Chart(ctx6, {
-            type: 'bar',
-            data: {
-                labels: labels6,
-                datasets: [{
-                    label: '¿Qué tan probable es que compre componentes electrónicos de un catalogo digital?',
-                    data: data6,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta7)
-        const ctx7 = document.getElementById('grafico_pregunta7').getContext('2d');
-        const labels7 = {{ labels_pregunta7|safe }};
-        const data7 = {{ data_pregunta7|safe }};
-        new Chart(ctx7, {
-            type: 'bar',
-            data: {
-                labels: labels7,
-                datasets: [{
-                    label: '¿Qué estilo de diseño preferiría para el catalogo?',
-                    data: data7,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta8)
-        const ctx8 = document.getElementById('grafico_pregunta8').getContext('2d');
-        const labels8 = {{ labels_pregunta8|safe }};
-        const data8 = {{ data_pregunta8|safe }};
-        new Chart(ctx8, {
-            type: 'bar',
-            data: {
-                labels: labels8,
-                datasets: [{
-                    label: '¿Qué es lo mas importante para ti al comprar componentes electrónicos?',
-                    data: data8,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta9)
-        const ctx9 = document.getElementById('grafico_pregunta9').getContext('2d');
-        const labels9 = {{ labels_pregunta9|safe }};
-        const data9 = {{ data_pregunta9|safe }};
-        new Chart(ctx9, {
-            type: 'bar',
-            data: {
-                labels: labels9,
-                datasets: [{
-                    label: '¿Qué tipos de recursos adicionales consideras útiles para complementar la información de los componentes?',
-                    data: data9,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        // Código para el segundo gráfico (pregunta10)
-        const ctx10 = document.getElementById('grafico_pregunta10').getContext('2d');
-        const labels10 = {{ labels_pregunta10|safe }};
-        const data10 = {{ data_pregunta10|safe }};
-        new Chart(ctx10, {
-            type: 'bar',
-            data: {
-                labels: labels10,
-                datasets: [{
-                    label: '¿Nos permitirías mandar nuevas encuestas a tu correo  en el futuro?',
-                    data: data10,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // Repite este código para los otros gráficos
-    </script>
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Información del Proyecto</h5>
-                    <p class="card-text">
-                        Nuestro catálogo digital te ofrece una amplia variedad de componentes electrónicos esenciales
-                        para tus proyectos. Cada descripción de producto se extrae automáticamente de Wikipedia, brindándote
-                        información precisa y detallada.
-                    </p>
-                    <p class="card-text">
-                        Regístrate hoy para acceder a funciones exclusivas y recibirás un correo de confirmación con
-                        detalles útiles sobre nuestros servicios. ¡Explora nuestro catálogo y encuentra los componentes
-                        electrónicos perfectos para tus proyectos!
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <img id="logo" src="{% static 'img/logo.JPG' %}" alt="Logo">
 </body>
 </html>

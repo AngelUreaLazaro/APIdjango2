@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'API9ISC22.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pruebaapi_00mf',
-        'USER': 'angel',
-        'PASSWORD': 'teSJYZhsETPYYMTOXfPbYUsohfaGr1Mw',
-        'HOST': 'oregon-postgres.render.com',
-        'PORT': '5432',
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'pruebaapi_00mf',
+        #'USER': 'angel',
+        #'PASSWORD': 'teSJYZhsETPYYMTOXfPbYUsohfaGr1Mw',
+        #'HOST': 'oregon-postgres.render.com',
+        #'PORT': '5432',
 
         #'ENGINE': 'django.db.backends.postgresql',
         #'NAME': 'formdjango',
@@ -92,7 +92,7 @@ DATABASES = {
         #'HOST': 'localhost',
         #'PORT': '',
         
-        #'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
