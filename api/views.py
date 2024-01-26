@@ -20,3 +20,7 @@ class Informes(APIView):
     template_registro='informes.html'    
     def get(self,request):
         return render(request,self.template_registro)
+class Informacion(APIView):
+    template_registro='informacion.html'    
+    def get(self,request):
+        return render(request,self.template_registro)

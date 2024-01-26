@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from api.views import Home
 from api.views import Informes
+from api.views import Informacion
 
 
 
@@ -24,6 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Home.as_view(),name='index'),
     path('informes.html',Informes.as_view(),name='informes'),
+    path('informacion.html',Informacion.as_view(),name='informacion'),
 ]
+
 
 
