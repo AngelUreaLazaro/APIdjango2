@@ -27,7 +27,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1; /* Añadido: asegura que el contenido esté sobre la barra de búsqueda */
+            z-index: 1; /* Asegura que el contenido esté sobre la barra de búsqueda */
         }
 
         #logo {
@@ -43,10 +43,13 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            position: absolute; /* Alinea los botones hacia la derecha */
+            top: 100px; /* Ajustado: posición relativa al contenido */
+            right: 20px; /* Añadido: alinea los botones hacia la derecha */
         }
 
         .botones-derecha li {
-            margin-bottom: 30px; /* Espacio entre botones */
+            margin-bottom: 10px; /* Espacio entre botones */
         }
 
         .boton-lista {
@@ -63,7 +66,6 @@
             text-align: center;
             transition: transform 0.3s; /* Transición de movimiento */
             font-size: 24px; /* Tamaño de fuente aumentado */
-            z-index: 1; /* Añadido: asegura que los botones estén sobre la barra de búsqueda */
         }
 
         .boton-lista:hover {
@@ -71,11 +73,12 @@
         }
 
         .busqueda {
-            position: absolute; /* Añadido: posición absoluta para superponerla */
-            top: 20px; /* Ajustado: posición relativa al contenido */
-            width: 80%;
-            max-width: 600px;
-            height: 40px;
+            position: absolute; /*  posición absoluta para superponerla */
+            top: 10%; /* mueve la barra de búsqueda un poco más arriba */
+            left: 50%; /*  centrar horizontalmente */
+            transform: translateX(-50%); /*  centrar horizontalmente */
+            width: 350px; /* reduce el ancho de la barra de búsqueda */
+            height: 50px;
             margin-bottom: 20px;
             padding: 10px;
             border-radius: 20px;
@@ -85,7 +88,7 @@
             background-color: rgba(97, 21, 50, 0.5); /* Color del fondo con transparencia */
             color: white;
             text-align: center;
-            z-index: 2; /* Añadido: asegura que la barra de búsqueda esté sobre el contenido */
+            z-index: 2; /* Asegura que la barra de búsqueda esté sobre el contenido */
         }
 
         .busqueda::placeholder {
@@ -109,8 +112,9 @@
             <li><a href="pagina2.html"><button class="boton-lista">Botón 2</button></a></li>
             <li><a href="pagina3.html"><button class="boton-lista">Botón 3</button></a></li>
             <li><a href="pagina4.html"><button class="boton-lista">Botón 4</button></a></li>
-            
+            <li><a href="pagina5.html"><button class="boton-lista">Botón 5</button></a></li>
         </ul>
     </div>
 </body>
 </html>
+

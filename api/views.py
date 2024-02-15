@@ -24,3 +24,11 @@ class Informacion(APIView):
     template_registro='informacion.html'    
     def get(self,request):
         return render(request,self.template_registro)
+class Prueba(APIView):
+    template_registro='prueba.html'    
+    def get(self,request):
+        return render(request,self.template_registro)
+class Predial(APIView):
+    template_registro='p_predial.html'    
+    def get(self,request):
+        return render(request,self.template_registro)

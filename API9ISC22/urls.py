@@ -18,7 +18,8 @@ from django.urls import path
 from api.views import Home
 from api.views import Informes
 from api.views import Informacion
-
+from api.views import Prueba
+from api.views import Predial
 
 
 urlpatterns = [
@@ -26,6 +27,8 @@ urlpatterns = [
     path('',Home.as_view(),name='index'),
     path('informes.html',Informes.as_view(),name='informes'),
     path('informacion.html',Informacion.as_view(),name='informacion'),
+    path('prueba.html',Prueba.as_view(),name='prueba'),
+    path('p_predial.html',Predial.as_view(),name='p_predial'),
 ]
 
 

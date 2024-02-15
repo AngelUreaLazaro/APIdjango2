@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERTIFICADO DE PAGO DE IMPUESTO PREDIAL</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #611532;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        #contenido {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: white; /* Fondo blanco */
+            border-top-left-radius: 50%; /* Esquinas superiores redondeadas */
+            padding: 20px; /* Espacio interior */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+        }
+
+        #logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px; /* Ajusta el tamaño según sea necesario */
+            height: auto; /* Altura automática para mantener la proporción */
+            z-index: 2; /* Asegura que el logo esté sobre el contenido */
+        }
+
+        .titulo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px; /* Ajustado: margen inferior aumentado */
+            margin-top: 20px; /* Nuevo: margen superior agregado */
+        }
+
+        .requisitos {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: auto; /* Ajustado: margen derecho a automático */
+            margin-left: 155px; /* Ajustado: margen izquierdo aumentado */
+            text-align: justify; /* Justificar el texto */
+        }
+
+        .requisitos ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .requisitos ul li {
+            margin-bottom: 10px;
+        }
+
+        .contacto {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: auto; /* Ajustado: margen izquierdo a automático */
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido principal -->
+    <div id="contenido">
+        <!-- Logo en la esquina superior izquierda -->
+        <img id="logo" src="{% static 'img/logo.JPG' %}" alt="Logo">
+        
+        <!-- Título -->
+        <div class="titulo">CERTIFICADO DE PAGO DE IMPUESTO PREDIAL</div>
+
+        <!-- Lista de requisitos -->
+        <div class="requisitos">
+            <h2>Requisitos:</h2>
+            <ul>
+                <li>Solicitud de servicios y expedición de Certificados debidamente requisitado</li>
+                <li>Identificación oficial del contribuyente</li>
+                <li>Recibo de pago de impuesto predial</li>
+                <li>Certificado de clave y valor catastral</li>
+                <li>Pagar los derechos correspondientes de acuerdo al Art. 147</li>
+            </ul>
+        </div>
+
+        <!-- Información de contacto -->
+        <div class="contacto">
+            <h2>Información de contacto:</h2>
+            <ul>
+                <li>Ubicación</li>
+                <li>Encargad@</li>
+                <li>Hora de atención</li>
+                <li>Contacto</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
