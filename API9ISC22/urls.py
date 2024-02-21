@@ -20,6 +20,9 @@ from api.views import Informes
 from api.views import Informacion
 from api.views import Prueba
 from api.views import Predial
+from api.views import Tianguis
+from api.views import Defuncion
+from api.views import General
 
 
 urlpatterns = [
@@ -29,7 +32,11 @@ urlpatterns = [
     path('informacion.html',Informacion.as_view(),name='informacion'),
     path('prueba.html',Prueba.as_view(),name='prueba'),
     path('p_predial.html',Predial.as_view(),name='p_predial'),
+    path('tianguis.html',Tianguis.as_view(),name='tianguis'),
+    path('defuncion.html',Defuncion.as_view(),name='defuncion'),
+    path('medica_general.html',General.as_view(),name='generall'),
 ]
+
 
 
 

@@ -108,13 +108,32 @@
         
         <!-- Lista de botones en el lado derecho -->
         <ul class="botones-derecha">
-            <li><a href="pagina1.html"><button class="boton-lista">Botón 1</button></a></li>
+            <li><a href="p_predial.html"><button class="boton-lista">Botón 1</button></a></li>
             <li><a href="pagina2.html"><button class="boton-lista">Botón 2</button></a></li>
             <li><a href="pagina3.html"><button class="boton-lista">Botón 3</button></a></li>
             <li><a href="pagina4.html"><button class="boton-lista">Botón 4</button></a></li>
             <li><a href="pagina5.html"><button class="boton-lista">Botón 5</button></a></li>
         </ul>
     </div>
+
+    <script>
+        var tiempoInactividad = 10000; // 10 segundos en milisegundos
+
+        var temporizadorInactivo;
+
+        function reiniciarTemporizadorInactivo() {
+            clearTimeout(temporizadorInactivo);
+            temporizadorInactivo = setTimeout(function () {
+                window.location.href = "{% url 'index' %}"; // Redirecciona a index.html después de 10 segundos de inactividad
+            }, tiempoInactividad);
+        }
+
+        // Evento para reiniciar el temporizador de inactividad cuando ocurre una actividad en la página
+        document.addEventListener("mousemove", reiniciarTemporizadorInactivo);
+        document.addEventListener("keypress", reiniciarTemporizadorInactivo);
+
+        // Inicia el temporizador de inactividad al cargar la página
+        reiniciarTemporizadorInactivo();
+    </script>
 </body>
 </html>
-

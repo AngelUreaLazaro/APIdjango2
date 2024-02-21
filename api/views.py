@@ -32,3 +32,15 @@ class Predial(APIView):
     template_registro='p_predial.html'    
     def get(self,request):
         return render(request,self.template_registro)
+class Tianguis(APIView):
+    template_registro='tianguis.html'    
+    def get(self,request):
+        return render(request,self.template_registro)
+class Defuncion(APIView):
+    template_registro='defuncion.html'    
+    def get(self,request):
+        return render(request,self.template_registro)
+class General(APIView):
+    template_registro='medica_general.html'    
+    def get(self,request):
+        return render(request,self.template_registro)

@@ -66,6 +66,7 @@
             text-align: center;
             transition: transform 0.3s; /* Transición de movimiento */
             font-size: 17px; /* Tamaño de fuente aumentado */
+            display: block; /* Mostrar los botones por defecto */
         }
 
         .boton-lista:hover {
@@ -109,14 +110,48 @@
         <!-- Lista de botones en el lado derecho -->
         <ul class="botones-derecha">
             <li><a href="p_predial.html"><button class="boton-lista">CERTIFICADO DEL PAGO DE IMPUESTO PREDIAL</button></a></li>
-            <li><a href="pagina2.html"><button class="boton-lista">CERTIFICADO DE DENFUNCION</button></a></li>
-            <li><a href="pagina3.html"><button class="boton-lista">CESION DE DERECHOS DE TIANGUIS</button></a></li>
-            <li><a href="pagina4.html"><button class="boton-lista">CONSULTA MEDICA GENERAL</button></a></li>
+            <li><a href="defuncion.html"><button class="boton-lista">CERTIFICADO DE DENFUNCION</button></a></li>
+            <li><a href="tianguis.html"><button class="boton-lista">CESION DE DERECHOS DE TIANGUIS</button></a></li>
+            <li><a href="medica_general.html"><button class="boton-lista">CONSULTA MEDICA GENERAL</button></a></li>
             <li><a href="pagina5.html"><button class="boton-lista">ATENCION PSICOLOGICA</button></a></li>
         </ul>
     </div>
+    <script>
+        var tiempoInactividad = 10000; // 10 segundos en milisegundos
 
+        var temporizadorInactivo;
+
+        function reiniciarTemporizadorInactivo() {
+            clearTimeout(temporizadorInactivo);
+            temporizadorInactivo = setTimeout(function () {
+                window.location.href = "{% url 'index' %}"; // Redirecciona a index.html después de 10 segundos de inactividad
+            }, tiempoInactividad);
+        }
+
+        // Evento para reiniciar el temporizador de inactividad cuando ocurre una actividad en la página
+        document.addEventListener("mousemove", reiniciarTemporizadorInactivo);
+        document.addEventListener("keypress", reiniciarTemporizadorInactivo);
+
+        // Inicia el temporizador de inactividad al cargar la página
+        reiniciarTemporizadorInactivo();
+
+        // Agregar evento de escucha para la entrada de texto
+        var inputBusqueda = document.querySelector(".busqueda");
+        var botonesLista = document.querySelectorAll(".boton-lista");
+
+        inputBusqueda.addEventListener("input", function () {
+            var textoBusqueda = this.value.toLowerCase(); // Convertir texto de búsqueda a minúsculas
+
+            botonesLista.forEach(function (boton) {
+                var textoBoton = boton.textContent.toLowerCase(); // Obtener texto del botón en minúsculas
+
+                if (textoBoton.includes(textoBusqueda)) {
+                    boton.parentNode.style.display = "block"; // Mostrar el botón si coincide con la búsqueda
+                } else {
+                    boton.parentNode.style.display = "none"; // Ocultar el botón si no coincide con la búsqueda
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
